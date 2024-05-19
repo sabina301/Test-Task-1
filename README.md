@@ -10,16 +10,20 @@
 ``cd Test-Task-1``
 
 
-3) Compile the executable file from the root directory  
+3) Go to tz-yadro directory
+   ``cd tz-yadro``
+
+
+4) Compile the executable file from the root directory  
 ``go build ./cmd/``  
 
 
-4) Run executable file   
+5) Run executable file   
 ``./cmd``  
 
 ## For run tests:
 
-1) Go to internal from the root directory  
+1) Go to internal from the tz-yadro directory  
 ``cd internal``  
 
 
