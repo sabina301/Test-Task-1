@@ -1,0 +1,32 @@
+name: Go
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: '1.21'
+
+      - name: Install dependencies
+        run: |
+          cd tz-yadro
+          go mod download
+
+      - name: Run tests
+        run: |
+          cd tz-yadro
+          go test ./...
