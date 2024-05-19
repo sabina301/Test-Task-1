@@ -14,7 +14,7 @@
    ``cd tz-yadro``
 
 
-4) Compile the executable file from the root directory  
+4) Compile the executable file from tz-yadro directory  
 ``go build ./cmd/``  
 
 
@@ -23,7 +23,7 @@
 
 ## For run tests:
 
-1) Go to internal from the tz-yadro directory  
+1) Go to internal from tz-yadro directory  
 ``cd internal``  
 
 
