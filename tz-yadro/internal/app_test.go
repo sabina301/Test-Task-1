@@ -3,6 +3,7 @@ package internal
 import (
 	"bufio"
 	"bytes"
+	"sort"
 	"strings"
 	"testing"
 )
@@ -38,10 +39,10 @@ func Test_scanData(t *testing.T) {
 				t.Errorf("Invalid test data, wrong length")
 				continue
 			}
-			if !isEqual(colorBalls, tt.expectedColors) {
+			if !isEqualSlices(colorBalls, tt.expectedColors) {
 				t.Errorf("Get colorBalls = %v, expected colorBalls = %v", colorBalls, tt.expectedColors)
 			}
-			if !isEqual(containerBalls, tt.expectedContainers) {
+			if !isEqualSlices(containerBalls, tt.expectedContainers) {
 				t.Errorf("Get containerBalls = %v, expected containerBalls = %v", containerBalls, tt.expectedContainers)
 			}
 		}
@@ -151,4 +152,15 @@ func Test_sortBalls(t *testing.T) {
 			t.Errorf("Get output = %v, expected output %v", buf.String(), tt.expectedOutput)
 		}
 	}
+}
+
+func isEqualSlices(colorBallsCount []int, containerBallsCount []int) bool {
+	sort.Ints(colorBallsCount)
+	sort.Ints(containerBallsCount)
+	for i := 0; i < len(colorBallsCount); i++ {
+		if colorBallsCount[i] != containerBallsCount[i] {
+			return false
+		}
+	}
+	return true
 }
